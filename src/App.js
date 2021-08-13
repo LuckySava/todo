@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.scss';
+import Input from './components/UI/Input/Input';
+import Button from './components/UI/Button/Button'
+import { useEffect, useState } from 'react';
 
 function App() {
+
+const [value, setValue] = useState('');
+
+const getInputValue =(e) => {
+  setValue(e.target.value)
+}
+
+const [task, setTasks] = useState([])
+
+const onButtonClick = (e) => {
+  e.preventDefault();
+  setTasks([...task, value.trim()])
+  setValue('')
+}
+
+useEffect(() => {
+  setValue(value)
+},[value])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
-      </header>
-    </div>
+    <>
+    <section className={styles.app}>
+      <div className={styles.container}>
+        <form className={styles.main_form}>
+          <Input value={value} onChange={getInputValue} type='text' placeholder="Enter your task here"/>
+          <Button onClick={onButtonClick}>Create Task</Button>
+        </form>
+
+        <div className="tasks">
+          
+        </div>
+      </div>
+    </section>
+    </>
   );
 }
 

@@ -1,0 +1,16 @@
+.main_btn {
+    border: 2px solid teal;
+    background: transparent;
+    border-radius: 5px;
+    padding:10px 20px;
+    font-size: 21px;
+    color: teal;
+    transition: .3s;
+    cursor: pointer;
+    display: block;
+    margin: 5px 0 5px auto;
+
+    &:hover {
+        opacity: .7;
+    }
+}
