@@ -14,8 +14,20 @@
     overflow: hidden;
 }
 
-.task {
-    padding: 15px;
-    border: 2px solid steelblue;
-    border-radius: 5px;
+.tasks {
+    margin-top: 40px;
+}
+
+.todo_header {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.todo_title {
+    color: teal;
+}
+
+.todo_title_empty {
+    color: steelblue;
 }

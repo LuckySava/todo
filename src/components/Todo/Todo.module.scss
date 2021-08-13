@@ -1,0 +1,44 @@
+.task {
+    padding: 15px;
+    border: 2px solid steelblue;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    position: relative;
+
+    &__text {
+        padding: 0 10px;
+        color: #341f97;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    &__number {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        font-weight: 600;
+        color: teal;
+    }
+}
+
+// Buttons
+
+.task__controls {
+    display: flex;
+    align-items: center;
+    padding: 10px 0 10px 10px;
+    border-left: 2px solid teal;
+}
+
+.btns_control {
+    cursor: pointer;
+    margin: 0 5px;
+    svg {
+        width: 20px;
+        height: auto;
+        transition: .3s;
+    }
+}
