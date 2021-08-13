@@ -13,4 +13,12 @@
     &:hover {
         opacity: .7;
     }
+
+    &__disabled {
+        pointer-events: none;
+        border-color:gray;
+        color: gray;
+        opacity: .6;
+    }
 }
+
