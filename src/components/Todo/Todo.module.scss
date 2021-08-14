@@ -41,6 +41,10 @@
         width: 20px;
         height: auto;
         transition: .3s;
+
+        path {
+            transition: .3s;
+        }
     }
 }
 
@@ -57,3 +61,61 @@
         opacity: 0.2;
     }
 }
+
+.delete_btn {
+    svg {
+        &:hover {
+            path {
+                fill: tomato;
+            }
+        }
+    }
+}
+
+.done_btn {
+    svg {
+        &:hover {
+            path {
+                fill: rgb(90, 185, 90);
+            }
+        }
+    }
+}
+
+.save_btn, .edit_btn {
+    svg {
+        &:hover {
+            path {
+                fill: rgb(52, 32, 179);
+            }
+        }
+    }
+}
+
+.edit_btn_disabled, .done_btn_disabled, .delete_btn_disabled {
+    pointer-events: none;
+    svg {
+        path {
+            fill: lightgray;
+        }
+    }
+}
+
+.custom_textarea {
+    resize: none;
+    width: 100%;
+    margin: 0 15px 0 10px;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid lightgrey;
+    height: 60px;
+}
+
+
+
+
+
+
+
+
+

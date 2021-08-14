@@ -16,7 +16,7 @@ function App() {
 
   const onButtonClick = (e) => {
     e.preventDefault();
-    setTask([...task, { id: task.length, checked: false, body: value.trim() }])
+    setTask([...task, { id: task.length, checked: false, body: value.trim(), editmode: false }])
     setValue('')
   }
 
@@ -37,13 +37,39 @@ function App() {
     return ret;
   }
 
+  function changeEditmode(array = task, index = 0) {
+    const ret = array.slice(0);
+    let doneOrNot = ret[index].editmode;
+
+    ret[index].editmode = !doneOrNot;
+    
+    return ret;
+  }
+
+  function changeBody(array = task, index = 0, body) {
+    const ret = array.slice(0);
+    let doneOrNot = ret[index].editmode;
+
+    ret[index].body = body;
+    ret[index].editmode = !doneOrNot;
+    
+    return ret;
+  }
+
   const handleChecked = (id) => {
     const newTodos = replaceAt(task, id);
     setTask(newTodos)
-
   }
 
+  const handleEdit = (id) => {
+    const newTodos = changeEditmode(task, id)
+    setTask(newTodos)
+   }
 
+   const getEditModeValue = (obj) => {
+     const newTodos = changeBody(task, obj.id, obj.body);
+     setTask(newTodos)
+   }
 
   return (
     <>
@@ -68,8 +94,11 @@ function App() {
               task.map((item, ind) => <Todo
                 key={ind}
                 checked={item.checked}
+                editMode={item.editmode}
                 del={handleDelete}
                 done={handleChecked}
+                edit={handleEdit}
+                getEditModeValue={getEditModeValue}
                 number={ind + 1}
                 body={item.body} />)
             }
