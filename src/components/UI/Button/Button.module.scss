@@ -9,6 +9,7 @@
     cursor: pointer;
     display: block;
     margin: 5px 0 5px auto;
+    position: relative;
 
     &:hover {
         opacity: .7;
@@ -22,3 +23,9 @@
     }
 }
 
+.task_count {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 12px;
+}

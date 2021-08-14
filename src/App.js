@@ -20,20 +20,24 @@ function App() {
     setValue('')
   }
 
+  const handleDelete = (id) => {
+
+    const newArr = [...task.filter((task, ind) => ind + 1 !== id)]
+
+    setTask(newArr)
+
+  }
+
+
   useEffect(() => {
     setValue(value)
   }, [value])
-
-  const handleDelete = (id) => {
-    console.log(id);
-    setTask([...task.filter((task, ind) => ind + 1 !== id)])
-  }
 
   function replaceAt(array = task, index = 0) {
     const ret = array.slice(0);
     let doneOrNot = ret[index].checked;
     ret[index].checked = !doneOrNot;
-    
+
     return ret;
   }
 
@@ -42,7 +46,7 @@ function App() {
     let doneOrNot = ret[index].editmode;
 
     ret[index].editmode = !doneOrNot;
-    
+
     return ret;
   }
 
@@ -52,7 +56,7 @@ function App() {
 
     ret[index].body = body;
     ret[index].editmode = !doneOrNot;
-    
+
     return ret;
   }
 
@@ -64,22 +68,31 @@ function App() {
   const handleEdit = (id) => {
     const newTodos = changeEditmode(task, id)
     setTask(newTodos)
-   }
+  }
 
-   const getEditModeValue = (obj) => {
-     const newTodos = changeBody(task, obj.id, obj.body);
-     setTask(newTodos)
-   }
+  const getEditModeValue = (obj) => {
+
+    if (!obj.hasOwnProperty('body')) {
+      const newTodos = changeEditmode(task, obj.id)
+      setTask(newTodos)
+      return;
+    }
+
+    const newTodos = changeBody(task, obj.id, obj.body);
+    setTask(newTodos);
+
+  }
 
   return (
     <>
       <section className={styles.app}>
         <div className={styles.container}>
 
+          <h2 className={styles.main_header}>My First Todo App</h2>
 
           <form className={styles.main_form}>
             <Input value={value} onChange={getInputValue} type='text' placeholder="Enter your task here" />
-            <Button disabled={value.length ? false : true} onClick={onButtonClick}>Create Task</Button>
+            <Button taskCount={task.length} disabled={value.length ? false : true} onClick={onButtonClick}>Create Task</Button>
           </form>
 
           {
@@ -87,6 +100,10 @@ function App() {
               ? <h2 className={`${styles.todo_title} ${styles.todo_header}`}>Your Tasks:</h2>
               : <h2 className={`${styles.todo_title_empty} ${styles.todo_header}`}>Nothing to do!</h2>
           }
+
+          <div className={styles.info_panel}>
+            
+          </div>
 
           <div className={styles.tasks}>
 

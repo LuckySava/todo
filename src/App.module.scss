@@ -1,3 +1,6 @@
+// Fonts
+$hanalei_font:'Hanalei Fill', cursive;
+
 .app {
     height: 100%;
     padding: 50px 0;
@@ -7,6 +10,12 @@
         margin: 0 auto;
         padding: 0 20px;
     }
+}
+
+.main_header {
+    font-family: $hanalei_font;
+    color: gray;
+    opacity: .6;
 }
 
 .main_form {
@@ -21,7 +30,7 @@
 .todo_header {
     text-align: center;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .todo_title {

@@ -4,7 +4,6 @@ import { ReactComponent as EditBtn } from '../../assets/svg/edit-button.svg';
 import { ReactComponent as SaveBtn } from '../../assets/svg/diskette.svg';
 import { ReactComponent as DoneBtn } from '../../assets/svg/approved.svg';
 import { ReactComponent as DeleteBtn } from '../../assets/svg/delete.svg';
-import Input from '../UI/Input/Input';
 import { useState } from 'react';
 
 const Todo = ({ body, number, del, done, edit, checked, editMode, getEditModeValue }) => {
@@ -13,7 +12,7 @@ const Todo = ({ body, number, del, done, edit, checked, editMode, getEditModeVal
   const handleCheck = () => done(number-1);
   const handleEdit = () => edit(number-1);
 
-  const [bodyText, setBodyText] = useState({})
+  const [bodyText, setBodyText] = useState({id:number-1})
 
   const handleEditMode = (e) => {
     setBodyText({body: e.target.value, id:number - 1});
@@ -32,7 +31,7 @@ const Todo = ({ body, number, del, done, edit, checked, editMode, getEditModeVal
 {
   editMode
   ? <textarea onChange={handleEditMode} name="editMode" className={styles.custom_textarea} defaultValue={body}></textarea>
-  : <p className={styles.task__text}>{body}</p>
+  : <p onDoubleClick={handleEdit} className={styles.task__text}>{body}</p>
 }
       
 
