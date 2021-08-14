@@ -16,18 +16,16 @@ function App() {
 
   const onButtonClick = (e) => {
     e.preventDefault();
-    setTask([...task, { id: task.length, checked: false, body: value.trim(), editmode: false }])
+    setTask([...task, { id: task.length, checked: false, body: value.trim(), editmode: false }]);
+
     setValue('')
   }
 
   const handleDelete = (id) => {
-
     const newArr = [...task.filter((task, ind) => ind + 1 !== id)]
-
     setTask(newArr)
 
   }
-
 
   useEffect(() => {
     setValue(value)
@@ -63,6 +61,7 @@ function App() {
   const handleChecked = (id) => {
     const newTodos = replaceAt(task, id);
     setTask(newTodos)
+
   }
 
   const handleEdit = (id) => {
@@ -80,7 +79,54 @@ function App() {
 
     const newTodos = changeBody(task, obj.id, obj.body);
     setTask(newTodos);
+  }
 
+  function compareBodyDesc( a, b ) {
+    if ( a.body < b.body ){
+      return -1;
+    }
+    if ( a.body > b.body ){
+      return 1;
+    }
+    return 0;
+  }
+
+  function compareBodyAsc( a, b ) {
+    if ( a.body < b.body ){
+      return 1;
+    }
+    if ( a.body > b.body ){
+      return -1;
+    }
+    return 0;
+  }
+
+  const handleOnChange = (e) => {
+    const type = e.target.value;
+
+    if (!type) return;
+
+    switch (type) {
+      case 'id-desc':
+        const sortedDataIdDesc = [...task].sort((a, b) => b['id'] - a['id']);
+        setTask(sortedDataIdDesc);
+        break;
+      case 'id-asc':
+        const sortedDataIdAsc = [...task].sort((a, b) => a['id'] - b['id']);
+        setTask(sortedDataIdAsc);
+        break;
+      case 'body-desc':
+        const sortBodyDesc = [...task].sort(compareBodyDesc)
+        setTask(sortBodyDesc);
+        break;
+      case 'body-asc':
+        const sortBodyAsc = [...task].sort(compareBodyAsc)
+        setTask(sortBodyAsc);
+        break;
+      default:
+        console.log('Sorry, nothing match');
+    }
+    
   }
 
   return (
@@ -102,7 +148,13 @@ function App() {
           }
 
           <div className={styles.info_panel}>
-            
+            <select onChange={handleOnChange} className={styles.select}>
+              <option value="">Please make your choose</option>
+              <option value="id-asc">Sort by Id (ASC)</option>
+              <option value="id-desc">Sort by Id (DESC)</option>
+              <option value="body-asc">Sort by Text (ASC)</option>
+              <option value="body-desc">Sort by Text (DESC)</option>
+            </select>
           </div>
 
           <div className={styles.tasks}>
