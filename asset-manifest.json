@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.3cc99e56.chunk.css",
-    "main.js": "/static/js/main.b7e07d55.chunk.js",
-    "main.js.map": "/static/js/main.b7e07d55.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.7bf2e5e8.js",
-    "runtime-main.js.map": "/static/js/runtime-main.7bf2e5e8.js.map",
-    "static/js/2.39a6d557.chunk.js": "/static/js/2.39a6d557.chunk.js",
-    "static/js/2.39a6d557.chunk.js.map": "/static/js/2.39a6d557.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.3cc99e56.chunk.css.map": "/static/css/main.3cc99e56.chunk.css.map",
-    "static/js/2.39a6d557.chunk.js.LICENSE.txt": "/static/js/2.39a6d557.chunk.js.LICENSE.txt",
-    "static/media/approved.a9ff3955.svg": "/static/media/approved.a9ff3955.svg",
-    "static/media/delete.a90c190a.svg": "/static/media/delete.a90c190a.svg",
-    "static/media/diskette.1f029283.svg": "/static/media/diskette.1f029283.svg",
-    "static/media/edit-button.055b5ca1.svg": "/static/media/edit-button.055b5ca1.svg"
+    "main.css": "/todo/static/css/main.3cc99e56.chunk.css",
+    "main.js": "/todo/static/js/main.b7e07d55.chunk.js",
+    "main.js.map": "/todo/static/js/main.b7e07d55.chunk.js.map",
+    "runtime-main.js": "/todo/static/js/runtime-main.84e922a2.js",
+    "runtime-main.js.map": "/todo/static/js/runtime-main.84e922a2.js.map",
+    "static/js/2.39a6d557.chunk.js": "/todo/static/js/2.39a6d557.chunk.js",
+    "static/js/2.39a6d557.chunk.js.map": "/todo/static/js/2.39a6d557.chunk.js.map",
+    "index.html": "/todo/index.html",
+    "static/css/main.3cc99e56.chunk.css.map": "/todo/static/css/main.3cc99e56.chunk.css.map",
+    "static/js/2.39a6d557.chunk.js.LICENSE.txt": "/todo/static/js/2.39a6d557.chunk.js.LICENSE.txt",
+    "static/media/approved.a9ff3955.svg": "/todo/static/media/approved.a9ff3955.svg",
+    "static/media/delete.a90c190a.svg": "/todo/static/media/delete.a90c190a.svg",
+    "static/media/diskette.1f029283.svg": "/todo/static/media/diskette.1f029283.svg",
+    "static/media/edit-button.055b5ca1.svg": "/todo/static/media/edit-button.055b5ca1.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.7bf2e5e8.js",
+    "static/js/runtime-main.84e922a2.js",
     "static/js/2.39a6d557.chunk.js",
     "static/css/main.3cc99e56.chunk.css",
     "static/js/main.b7e07d55.chunk.js"
